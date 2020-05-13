@@ -44,6 +44,11 @@ func main() {
 	// Serve frontend static files
 	router.Use(static.Serve("/", static.LocalFile("./views", true)))
 
+	/*
+		Example how to use a complex react app instead of tutorial one
+		router.Use(static.Serve("/", static.LocalFile("./views/reactApp/build", true)))
+	*/
+
 	// Rout group for the API
 	api := router.Group("/api")
 	{
