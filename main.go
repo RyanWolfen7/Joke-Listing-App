@@ -7,6 +7,10 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// Useful Gin Fucntions
+// gin.c = context
+// gin.H = map[string]interface{} see https://gobyexample.com/json
+
 func main() {
 	// default gin router
 	router := gin.Default()
@@ -24,6 +28,25 @@ func main() {
 		})
 	}
 
+	api.GET("/jokes", JokeHandler)
+	api.POST("/jokes/like/:jokeID", LikeJoke)
+
 	// Start and run Server
 	router.Run(":3000")
+}
+
+// JokeHandler retieves list of available jokes
+func JokeHandler(context *gin.Context) {
+	context.Header("Content-Type", "application/json")
+	context.JSON(http.StatusOK, gin.H{
+		"message": "Jokes handler not implemented yet",
+	})
+}
+
+// LikeJoke increments the likes of a particular joke Item
+func LikeJoke(context *gin.Context) {
+	context.Header("Content-Type", "application/json")
+	context.JSON(http.StatusOK, gin.H{
+		"message": "LikeJoke handler not implemented yet",
+	})
 }
