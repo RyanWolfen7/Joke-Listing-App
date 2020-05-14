@@ -33,6 +33,10 @@ type Joke struct {
 	Joke  string `json:"joke" binding:"required"`
 }
 
+type Response struct {
+	Message string `json:"message"`
+}
+
 // Jwks stores a slice of JSON Web Keys
 type Jwks struct {
 	Keys []JSONWebKeys `json:"keys"`
